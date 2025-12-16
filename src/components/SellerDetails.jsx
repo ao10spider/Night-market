@@ -1,11 +1,18 @@
 import "./SellerDetails.css"
+import larrowSvg from "../assets/left-arrow.svg";
 
 
 // Header of the Seller Details page
 function SdHeader() {
+    const handleclick=()=>{
+
+    };
     return(
         <div className="sd-header">
-            Header
+        <button onClick={handleclick} className="larrow-button">
+            <img className="larrow-color" src={larrowSvg} alt="back"/>
+        </button>
+          Seller Details  
         </div>
     )
 }
