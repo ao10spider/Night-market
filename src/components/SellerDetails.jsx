@@ -1,9 +1,10 @@
 import "./SellerDetails.css"
 import larrowSvg from "../assets/left-arrow.svg";
-// import thumb from "../assets/chips.png"
-import thumb from "../assets/example.png"
+import thumb from "../assets/chips.png"
+// import thumb from "../assets/example.png"
 import clockSvg from "../assets/clock.svg"
 import locationSvg from "../assets/location.svg";
+import whatsappSvg from "../assets/whatsapp.svg";
 
 // Header of the Seller Details page
 function SdHeader() {
@@ -14,8 +15,8 @@ function SdHeader() {
         <div className="sd-header">
         <button onClick={handleclick} className="larrow-button">
             <img className="larrow-color" src={larrowSvg} alt="back"/>
-        </button>
-          Seller Details
+        </button>          
+          <p className="sd-header-text">Seller Details</p>
         </div>
     )
 }
@@ -45,18 +46,20 @@ function SdDetails() {
     return(
         <div className="sd-details">
             <div className="sd-details-header">
-                <div className="sd-details-header-info">
+                <div className="sd-details-header-info" style={{width: "50%"}}>
                     <div className="sd-details-name">Rahul Kumar</div>
-                    <div className="sd-details-loc">
+                    <div className="sd-details-loc" style={{gap: "0.5em"}}>
                         <img className="sd-details-loc-symbol" src={locationSvg}></img>
-                        Block A | Room 204
+                        <p className="sd-details-loc-block" style={{margin: 0}}>Block A</p>
+                        <p className="sd-details-loc-room" style={{margin: 0}}>Room 203</p>
+
                     </div>
                 </div>
 
-                <div className="sd-details-open-closed" style={{border: isOpen? "green 3px solid": "#b13333 3px solid", backgroundColor: isOpen? "rgba(0, 128, 0, 0.1)": "rgba(177, 51, 51, 0.1)"}}>
-                    <div className="sd-details-status-circle" style={{backgroundColor: isOpen? "green": "#b13333"}}>
+                <div className="sd-details-open-closed" style={{border: isOpen? "#25d366 3px solid": "#b13333 3px solid", backgroundColor: isOpen? "rgba(0, 128, 0, 0.1)": "rgba(177, 51, 51, 0.1)"}}>
+                    <div className="sd-details-status-circle" style={{backgroundColor: isOpen? "#25d366": "#b13333"}}>
                     </div>
-                    <p className="sd-details-status-text" style={{color: isOpen? "green": "#b13333"}}>{isOpenText} Now</p>
+                    <p className="sd-details-status-text" style={{color: isOpen? "#25d366": "#b13333"}}>{isOpenText} Now</p>
                 </div>
             </div>
 
@@ -64,21 +67,35 @@ function SdDetails() {
                 <p className="sd-details-about-header">About</p>
                 <p className="sd-details-about-text">Fresh, hygienic snacks delivered right to your room. Chips, biscuits, cold drinks, and instant noodles available daily. Fast delivery within Block A. Reliable service. Payments accepted via UPI or cash.</p>
             </div>
+
+            <SdWhatsapp />
         </div>
     )
 }
 
 // Goes to Whatsapp of the seller
 function SdWhatsapp() {
+    let whatsappNumber = "123456789"; // Dummy number, change later
+
+    const handleWhatsappClick = () => {
+        window.open(`https://wa.me/${whatsappNumber}`, "_blank");
+    };
+
     return(
         <div className="sd-whatsapp">
-            Whatsapp
+            <button type="button" className="sd-press-button" onClick={handleWhatsappClick}>
+                <div className="sd-press-top" style={{gap: "1em"}}>
+                    <img className="sd-press-whatsapp" style={{width: "1.5em", height: "1.5em"}} src={whatsappSvg} alt="whatsapp"/>
+                    <p className="sd-press-text" style={{fontWeight: "bold", fontSize: "1.2em"}}>Chat on WhatsApp</p>
+                </div>
+                <div className="sd-press-bottom"></div>
+            </button>
         </div>
+
     )
 }
 
 export default function SellerDetails() {
-
     return (
         <>
             <div className="sd-container">
@@ -87,8 +104,6 @@ export default function SellerDetails() {
                 <SdImage />
 
                 <SdDetails />
-
-                <SdWhatsapp />
             </div>
         </>
     )
