@@ -86,7 +86,7 @@ function SdWhatsapp() {
             <button type="button" className="sd-press-button" onClick={handleWhatsappClick}>
                 <div className="sd-press-top" style={{gap: "1em"}}>
                     <img className="sd-press-whatsapp" style={{width: "1.5em", height: "1.5em"}} src={whatsappSvg} alt="whatsapp"/>
-                    <p className="sd-press-text" style={{fontWeight: "bold", fontSize: "1.2em"}}>Chat on WhatsApp</p>
+                    <p className="sd-press-text" style={{fontWeight: "bold", fontSize: "1.2em", margin: 0}}>Chat on WhatsApp</p>
                 </div>
                 <div className="sd-press-bottom"></div>
             </button>
